@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-export default function Profile({
+export const Profile=(  {user: {
   username,
   tag,
   location,
   avatar,
   stats: { followers, views, likes },
-}) {
-  <>
-    <div class="profile">
+}} )=> {
+  <div>
+     <div class="profile">
       <div class="description">
         <img src={avatar} alt="User avatar" class="avatar" />
         <p class="name">{username}</p>
@@ -26,20 +26,19 @@ export default function Profile({
         </li>
         <li>
           <span class="label">Likes</span>
-          <span class="quantity">{views}</span>
+          <span class="quantity">{likes}</span>
         </li>
       </ul>
-    </div>
-  </>;
+    </div> 
+  </div>;
 }
-Profile.PropTypes = {
-  username: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
+
+ Profile.propTypes = {
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
   avatar: PropTypes.string,
-  stats: {
-    followers: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired,
-  },
-};
+  followers: PropTypes.number,
+    views: PropTypes.number,
+    likes: PropTypes.number,
+}; 
